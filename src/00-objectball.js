@@ -60,14 +60,14 @@ function gameObject(){
             colors: "Turqoise, Purple",
             players: {
                 "Jeff Adrian": {
-                    number: ,
-                    shoe: ,
-                    points: ,
-                    rebounds: ,
-                    assists: ,
-                    steals: ,
-                    blocks: ,
-                    slamDunks: 
+                    number: 4,
+                    shoe: 18,
+                    points: 10,
+                    rebounds: 1,
+                    assists: 1,
+                    steals: 2,
+                    blocks: 7,
+                    slamDunks: 2 
                 },
                 "Bismak Biyombo" : {
                     number: 0,
@@ -115,5 +115,43 @@ function gameObject(){
     }
     return gameObj
 }
+let gameObj = gameObject()
 
-console.log(gameObject())
+function numPointsScored(name){
+  for(let game in gameObj){
+    let team = gameObj[game]
+    if(team["players"][name]){
+      return team["players"][name]["points"]      
+    }
+  }
+}
+let out = numPointsScored("Reggie Evans")
+
+console.log(out)
+
+function shoeSize(name){
+    for(let game in gameObj){
+        let team = gameObj[game]
+        if(team["players"][name]){
+          return team["players"][name]["shoe"]      
+        }
+      }
+}
+
+function teamColors(team){
+    for(let game in gameObj){
+        let side = gameObj[game]
+        if(side[team]){
+            return side[team]["colors"]
+        }
+    }
+}
+
+function teamNames(match){
+    let teamArr = []
+    for(let game in gameObj){
+        let side = gameObj[game]
+        teamArr.push(side["teamName"])
+    }
+    return teamArr
+}
